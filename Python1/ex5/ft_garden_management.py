@@ -66,13 +66,8 @@ class GardenManager:
         should have all been checked earlier
         """
         print("Opening watering system")
-        i = 0
-        while True:
-            try:
-                print("Watering", self.plants[i][0], "- success")
-            except Exception:
-                break
-            i += 1
+        for plant in self.plants:
+            print("Watering", plant, "- success")
 
     def plant_health(self, plant, water, sun):
         """
