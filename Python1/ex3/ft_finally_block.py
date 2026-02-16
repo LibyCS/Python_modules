@@ -10,7 +10,7 @@ def water_plants(plant_list):
             print("Watering " + plant)
         print("Watering completed successfully!")
     except TypeError:
-            print("Error: Cannot water", plant, "- invalid plant!")
+        print("Error: Cannot water", plant, "- invalid plant!")
     finally:
         print("Closing watering system (cleanup)")
 
