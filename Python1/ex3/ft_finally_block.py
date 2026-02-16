@@ -5,21 +5,12 @@ def water_plants(plant_list):
     :param plant_list: a list of all plants in the system
     """
     print("Opening watering system")
-    i = 0
     try:
-        plant_list[i]
-        while True:
-            try:
-                print("Watering " + plant_list[i])
-            except:
-                print("Error: Cannot water", plant_list[i], "- invalid plant!")
-                break
-            i += 1
-            try:
-                plant_list[i]
-            except:
-                print("Watering completed successfully!")
-                break
+        for plant in plant_list:
+            print("Watering " + plant)
+        print("Watering completed successfully!")
+    except:
+            print("Error: Cannot water", plant, "- invalid plant!")
     finally:
         print("Closing watering system (cleanup)")
 
