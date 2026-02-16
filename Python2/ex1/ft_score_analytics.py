@@ -7,7 +7,7 @@ i = 1
 while i < len(args):
     try:
         score_list = score_list + [int(args[i])]
-    except:
+    except ValueError:
         print(f"Unfortunately {args[i]} is not an int")
     i += 1
 if len(args) == 1:
@@ -20,3 +20,4 @@ else:
     print(f"Highest score: {max(score_list)}")
     print(f"Lowest score: {min(score_list)}")
     print(f"Score range: {max(score_list) - min(score_list)}")
+
