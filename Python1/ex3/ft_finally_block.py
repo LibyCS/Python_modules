@@ -9,7 +9,7 @@ def water_plants(plant_list):
         for plant in plant_list:
             print("Watering " + plant)
         print("Watering completed successfully!")
-    except:
+    except ValueError:
             print("Error: Cannot water", plant, "- invalid plant!")
     finally:
         print("Closing watering system (cleanup)")
