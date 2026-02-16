@@ -20,4 +20,3 @@ else:
     print(f"Highest score: {max(score_list)}")
     print(f"Lowest score: {min(score_list)}")
     print(f"Score range: {max(score_list) - min(score_list)}")
-
