@@ -16,7 +16,7 @@ try:
     except IndexError:
         coords = (int(args[1]), int(args[2]), int(args[3]))
         print(f"Position created: {coords}")
-except ValueError, IndexError:
+except (ValueError, IndexError):
     try:
         temp = args[1].split(',')
         i = 0
