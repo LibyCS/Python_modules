@@ -18,6 +18,7 @@ class Flower(Plant):
     def __init__(self, name, height, age, colour):
         super().__init__(name, height, age)
         self.colour = colour
+
     def bloom(self):
         print(f"{self.name} is blooming beautifully!")
 
@@ -32,14 +33,15 @@ class Tree(Plant):
     def __init__(self, name, height, age, trunk_diameter):
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
+
     def produce_shade(self):
         shade = int((78 / 50) * self.trunk_diameter)
         print(f"{self.name} provides {shade}"
-                "square meters of shade")
+              "square meters of shade")
 
 
 class Vegetable(Plant):
-     """
+    """
     child class of the class Plant
     carries over the name, height and age
     structure but adds the nutritional_value method
@@ -48,6 +50,7 @@ class Vegetable(Plant):
     def __init__(self, name, height, age, harvest_season):
         super().__init__(name, height, age)
         self.harvest_season = harvest_season
+
     def nutritional_value(self):
         print(f"{self.name} is rich in vitamin c")
 
@@ -63,7 +66,7 @@ potato = Vegetable("Potato", 50, 45, "autumn harvest")
 plants = [rose, tulip, oak, maple, tomato, potato]
 for i in range(6):
     print(f"\n{plants[i].name} ({plants[i].__class__.__name__})"
-            f": {plants[i].height}cm, {plants[i].age} days, ", end="")
+          f": {plants[i].height}cm, {plants[i].age} days, ", end="")
     if plants[i].__class__.__name__ == "Flower":
         print(f"{plants[i].colour} colour")
         plants[i].bloom()

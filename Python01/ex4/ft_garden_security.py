@@ -15,6 +15,7 @@ class Plant:
         self.set_height(height)
         self.age = 0
         self.set_age(age)
+
     def set_height(self, height):
         """
         updates height with this method
@@ -27,9 +28,10 @@ class Plant:
             print("Invalid operation attempted:"
                   f"height {height}cm [REJECTED]")
             print("Security: Negative height rejected")
+
     def set_age(self, age):
         """
-        sets age with this method, checks if the 
+        sets age with this method, checks if the
         age is valid first
         """
         if age >= 0:
@@ -39,16 +41,19 @@ class Plant:
             print("Invalid operation attempted:"
                   f" age {age} days [REJECTED]")
             print("Security: Negative age rejected")
+
     def get_height(self):
         """
         printd height info
         """
         print(f"{self.name} height is {self.height}cm")
+
     def get_age(self):
         """
         prints age info
         """
-        printf(f"{self.name} age is {self.age} days")
+        print(f"{self.name} age is {self.age} days")
+
 
 plant_info = [("Rose", 25, 30), ("Cactus", 3, -5)]
 plants = []

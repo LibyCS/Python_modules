@@ -5,7 +5,7 @@ class Plant:
     """
     def __init__(self, name, height, age):
         """
-        initialises plant with specified 
+        initialises plant with specified
         data into variables
         """
         self.name = name
@@ -14,7 +14,7 @@ class Plant:
 
 
 plants_info = [("Rose", 25, 30), ("Oak", 200, 365), ("Cactus", 5, 90),
-              ("Sunflower", 80, 45), ("Fern", 15, 120)]
+               ("Sunflower", 80, 45), ("Fern", 15, 120)]
 plants = []
 for i in range(5):
     plants = plants + [Plant(*plants_info[i])]

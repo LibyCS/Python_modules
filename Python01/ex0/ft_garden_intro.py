@@ -1,4 +1,3 @@
-
 def main():
     """
     Main program which will print only if the program
@@ -13,7 +12,6 @@ def main():
     print(f"Age: {age} days\n")
     print("=== End of Program ===")
 
+
 if __name__ == "__main__":
     main()
-
-

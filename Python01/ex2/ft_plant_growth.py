@@ -12,6 +12,7 @@ class Plant:
         self.height = height
         self.ages = ages
         self.growth = 0
+
     def grow(self):
         """
         a grow method that acts on the class
@@ -22,12 +23,14 @@ class Plant:
         else:
             self.height += 1
             self.growth += 1
+
     def age(self):
         """
         method that ages the plant when called
         """
         self.ages += 1
         self.grow()
+
     def get_info(self):
         """
         gives info on the plant
@@ -35,6 +38,7 @@ class Plant:
         print(f"{self.name}: {self.height}cm, {self.ages} days old")
         if self.growth != 0:
             print(f"Growth this week: *{self.growth}cm")
+
 
 rose = Plant("Rose", 25, 30)
 print("=== Day 1 ===")
