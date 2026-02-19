@@ -1,4 +1,7 @@
 class Plant:
+    """
+    general class of a plant
+    """
     def __init__(self, name, height, age):
         self.name = name
         self.height = height
@@ -6,6 +9,12 @@ class Plant:
 
 
 class Flower(Plant):
+    """
+    child class of the class Plant
+    carries over the name, height and age
+    structure but adds the bloom method
+    and colour
+    """
     def __init__(self, name, height, age, colour):
         super().__init__(name, height, age)
         self.colour = colour
@@ -14,6 +23,12 @@ class Flower(Plant):
 
 
 class Tree(Plant):
+    """
+    child class of the class Plant
+    carries over the name, height and age
+    structure but adds the produce_shade method
+    and trunk_diameter
+    """
     def __init__(self, name, height, age, trunk_diameter):
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
@@ -24,6 +39,12 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
+     """
+    child class of the class Plant
+    carries over the name, height and age
+    structure but adds the nutritional_value method
+    and harvest_season
+    """
     def __init__(self, name, height, age, harvest_season):
         super().__init__(name, height, age)
         self.harvest_season = harvest_season

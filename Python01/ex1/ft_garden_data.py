@@ -1,6 +1,13 @@
 
 class Plant:
+    """
+    sets a structure for a class called plant
+    """
     def __init__(self, name, height, age):
+        """
+        adds variables to each plant by 
+        initialising straight away
+        """
         self.name = name
         self.height = height
         self.age = age

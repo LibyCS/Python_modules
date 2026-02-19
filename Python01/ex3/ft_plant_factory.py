@@ -1,5 +1,13 @@
 class Plant:
+    """
+    class that gives general structure
+    of a plant
+    """
     def __init__(self, name, height, age):
+        """
+        initialises plant with specified 
+        data into variables
+        """
         self.name = name
         self.height = height
         self .age = age

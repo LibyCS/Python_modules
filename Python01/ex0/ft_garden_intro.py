@@ -1,5 +1,9 @@
 
 def main():
+    """
+    Main program which will print only if the program
+    is executed directly.
+    """
     print("=== Welcome to My Garden ===")
     name = "Rose"
     height = 25
