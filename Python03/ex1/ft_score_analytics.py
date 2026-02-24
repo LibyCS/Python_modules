@@ -22,7 +22,7 @@ def demo() -> None:
         print(f"Scores processed: {score_list}")
         print(f"Total players: {len(args) - 1}")
         print(f"Total score: {sum(score_list)}")
-        print(f"Average score: {sum(score_list)/len(args)}")
+        print(f"Average score: {sum(score_list)/len(args):.1f}")
         print(f"Highest score: {max(score_list)}")
         print(f"Lowest score: {min(score_list)}")
         print(f"Score range: {max(score_list) - min(score_list)}")
