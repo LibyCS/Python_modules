@@ -3,6 +3,9 @@ import math
 
 
 def distance(coords):
+    """
+    calculates distance with this maths formula
+    """
     return math.sqrt((coords[0] ** 2) + (coords[1] ** 2) + (coords[2] ** 2))
 
 
@@ -50,5 +53,5 @@ except (ValueError, IndexError):
         print("No arguments present")
 try:
     print(f"Distance between (0, 0, 0) and {coords}: {distance(coords):.2f}")
-except NameError, IndexError:
+except (NameError, IndexError):
     pass
