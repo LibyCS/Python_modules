@@ -7,7 +7,7 @@ class Validation:
     functions
     """
     @staticmethod
-    def check_height(num) -> str:
+    def check_height(num: int) -> int:
         if num < 0:
             return 0
         return 1
@@ -40,7 +40,7 @@ class GardenManager:
         nested class which calculates all relevant
         stats
         """
-        def __init__(self, manager) -> None:
+        def __init__(self, manager: "GardenManager") -> None:
             """
             initialises manager
             """
@@ -241,7 +241,7 @@ class PrizeFlower(FloweringPlant):
         print(f", Prize points: {self.points}", end="")
 
 
-def demo():
+def demo() -> None:
     """
     my tests
     """
