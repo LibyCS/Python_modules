@@ -1,3 +1,4 @@
+
 class Validation:
     """
     shows how static methods work
@@ -20,14 +21,14 @@ class GardenManager:
     Its also got a nested class so that the class
     has a limited scope
     """
-    def __init__(self):
+    def __init__(self) -> None:
         """
         initialises manager adds a garden list
         """
         self.gardens = []
 
     @classmethod
-    def create_garden_network(cls):
+    def create_garden_network(cls) -> "GardenManager":
         """
         classmethod to create itself
         """
@@ -39,13 +40,13 @@ class GardenManager:
         nested class which calculates all relevant
         stats
         """
-        def __init__(self, manager):
+        def __init__(self, manager) -> None:
             """
             initialises manager
             """
             self.manager = manager
 
-        def heights(self):
+        def heights(self) -> None:
             """
             calculates using the utility function
             weather height is valid
@@ -57,7 +58,7 @@ class GardenManager:
                         return
             print("Height validation test: True")
 
-        def scores(self):
+        def scores(self) -> None:
             """
             calculates the total score depending on the
             plants in the garden
@@ -80,7 +81,7 @@ class GardenManager:
                 print(f"{garden.name}: {total}", end="")
             print("")
 
-        def total_gardens(self):
+        def total_gardens(self) -> None:
             """
             calculates how many gardens there are
             in the manager
@@ -90,7 +91,7 @@ class GardenManager:
                 total += 1
             print(f"Total gardens managed: {total}")
 
-    def show_garden_stats(self):
+    def show_garden_stats(self) -> None:
         """
         calls all stats functions
         """
@@ -99,7 +100,7 @@ class GardenManager:
         stats.scores()
         stats.total_gardens()
 
-    def add_garden(self, name):
+    def add_garden(self, name: str) -> "Garden":
         """
         adds a new empty garden by their
         name
@@ -113,7 +114,7 @@ class Garden:
     """
     garden class that sets a generic garden template
     """
-    def __init__(self, name):
+    def __init__(self, name: str) -> None:
         """
         initialises garden
         """
@@ -123,7 +124,8 @@ class Garden:
         self.total_growth = 0
         self.plant_types = {"Plant": 0, "FloweringPlant": 0, "PrizeFlower": 0}
 
-    def add_plant(self, name, height, colour=None, points=None):
+    def add_plant(self, name: str, height: int, colour: str = None,
+                  points: int = None) -> None:
         """
         adds plants to the garden updating relevant fields
         """
@@ -133,7 +135,7 @@ class Garden:
         self.total_plants_added += 1
         print(f"Added {name} to {self.name}'s garden")
 
-    def grow_all(self):
+    def grow_all(self) -> None:
         """
         grows all the plants in the garden by 1cm
         """
@@ -142,7 +144,7 @@ class Garden:
             plant.grow()
             self.total_growth += 1
 
-    def garden_info(self):
+    def garden_info(self) -> None:
         """
         lists all stats about the garden
         """
@@ -166,12 +168,14 @@ class Plant:
     """
     generic template for a plant
     """
-    def __init__(self, name, height):
+    def __init__(self, name: str, height: int) -> None:
         self.name = name
         self.height = height
 
     @classmethod
-    def create(cls, name, height, colour=None, points=None):
+    def create(cls, name: str, height: int, colour: str = None,
+               points: int = None
+               ) -> "Plant | FloweringPlant | PrizeFlower":
         """
         decides weather it should create a plant, a floweringplant
         or a prizeplant
@@ -182,14 +186,14 @@ class Plant:
             return FloweringPlant(name, height, colour)
         return PrizeFlower(name, height, colour, points)
 
-    def grow(self):
+    def grow(self) -> None:
         """
         grows plant by 1
         """
         self.height += 1
         print(f"{self.name} grew 1cm")
 
-    def plant_info(self):
+    def plant_info(self) -> None:
         """
         gives basic info on plant
         """
@@ -201,14 +205,14 @@ class FloweringPlant(Plant):
     child of the plant carries over the plant functions
     as well as taking in 1 more arg
     """
-    def __init__(self, name, height, colour):
+    def __init__(self, name: str, height: int, colour: str) -> None:
         """
         same as plant but also takes in colour
         """
         super().__init__(name, height)
         self.colour = colour
 
-    def flower_info(self):
+    def flower_info(self) -> None:
         """
         displays the extra info that plant doesnt have
         """
@@ -221,14 +225,15 @@ class PrizeFlower(FloweringPlant):
     from plant and floweringplant as well as 1 more
     arg
     """
-    def __init__(self, name, height, colour, points):
+    def __init__(self, name: str, height: int,
+                 colour: str, points: int) -> None:
         """
         initialises prizeflower
         """
         super().__init__(name, height, colour)
         self.points = points
 
-    def prize_info(self):
+    def prize_info(self) -> None:
         """
         adds the last extra info relevant to prize
         plats
@@ -258,4 +263,5 @@ def demo():
     manager.show_garden_stats()
 
 
-demo()
+if __name__ == "__main__":
+    demo()

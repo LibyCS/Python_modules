@@ -1,4 +1,4 @@
-def main():
+def main() -> None:
     """
     Main program which will print only if the program
     is executed directly.
