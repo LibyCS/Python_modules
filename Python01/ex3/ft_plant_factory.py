@@ -10,7 +10,7 @@ class Plant:
         """
         self.name = name
         self.height = height
-        self .age = age
+        self.age = age
 
 
 if __name__ == "__main__":
