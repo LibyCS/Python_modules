@@ -14,8 +14,6 @@ class WaterError(GardenError):
     properties
     """
     default_message = "Unknown WaterError"
-    def __init__(self, message: str) -> None:
-        super().__init__(message or self.default_message)
 
 
 class PlantError(GardenError):
@@ -24,8 +22,6 @@ class PlantError(GardenError):
     properties
     """
     default_message = "Unknown PlantError"
-    def __init__(self, message: str) -> None:
-        super().__init__(message or self.default_message)
 
 
 def garden_check(plant: int, water: int) -> None:
