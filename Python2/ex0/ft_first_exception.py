@@ -14,8 +14,8 @@ def test_temperature() -> None:
     Testing different temperature inputs
     """
     print("=== Garden Temperature ===")
-    input_temperature("25")
     try:
+        input_temperature("25")
         input_temperature("abc")
     except ValueError:
         print("Caught input_temperature error: invalid literal"
