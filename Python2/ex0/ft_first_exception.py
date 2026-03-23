@@ -4,9 +4,9 @@ def input_temperature(temp_str: str | int) -> int:
     the int form.
     """
     print(f"\nInput data is \'{temp_str}\'")
-    temp_str = int(temp_str)
-    print(f"Temperature is now {temp_str}°C")
-    return temp_str
+    temp_int = int(temp_str)
+    print(f"Temperature is now {temp_int}°C")
+    return temp_int
 
 
 def test_temperature() -> None:
