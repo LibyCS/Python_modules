@@ -43,22 +43,38 @@ def garden_operations():
     Returns: All the functions
     """
     def value_error() -> None:
+        """
+        Tries to convert the string "abc" to an int
+        """
         int("abc")
 
 
     def zero_error() -> None:
+        """
+        Tries to divide 12 by 0
+        """
         12 / 0
 
 
     def file_error() -> None:
+        """
+        Tries to open a non existent file
+        """
         open("non/existent/file", "r")
 
 
     def type_error() -> None:
+        """
+        Tries to add a string and an int together
+        """
         "num" + 2
 
 
     def multi() -> None:
+        """
+        This is a valid function, joining to strings together
+        But is used to show how you can except multiple errors
+        """
         "num" + "abc"
     return value_error, zero_error, file_error, type_error, multi
 
