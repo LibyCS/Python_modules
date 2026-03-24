@@ -4,7 +4,8 @@ class GardenError(Exception):
     takes the properties of Exception
     """
     default_message = "Unknown GardenError"
-    def __init__(self, message: str) -> None:
+
+    def __init__(self, message: str | None = None) -> None:
         super().__init__(message or self.default_message)
 
 
@@ -34,7 +35,8 @@ def garden_check(plant: int, water: int) -> None:
     """
     if plant > 70 and water < 10:
         raise GardenError("Caught a GardenError: The tomato plant is wilting!"
-                          "\nCaught a GardenError: Not enough water in the tank!")
+                          "\nCaught a GardenError: "
+                          "Not enough water in the tank!")
     elif plant > 70:
         raise PlantError("Caught PlantError: The tomato plant is wilting!")
     elif water < 10:
