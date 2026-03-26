@@ -4,13 +4,14 @@ def test_error_types() -> None:
     the inevitable crashes due to different Error types.
     This function catches and prints the apropriate message for each Error
     """
-    value_error, zero_error, file_error, type_error, multi = garden_operations()
+    value_error, zero_error, file_error, type_error, mult = garden_operations()
     print("=== Garden Error Types Demo ===")
     try:
         print("Testing operation 0...")
         value_error()
     except ValueError:
-        print("Caught ValueError: invalid literal for int() with base 10: \'abc\'")
+        print("Caught ValueError: invalid literal for int() "
+              "with base 10: \'abc\'")
     try:
         print("Testing operation 1...")
         zero_error()
@@ -21,15 +22,16 @@ def test_error_types() -> None:
         file_error()
     except FileNotFoundError:
         print("Caught FileNotFoundError: [Errno 2] No such file or directory: "
-        "'non/existent/file'")
+              "'non/existent/file'")
     try:
         print("Testing operation 3...")
         type_error()
     except (TypeError):
-        print("Caught TypeError: can only concatenate str (not \"int\") to str")
+        print("Caught TypeError: can only concatenate str"
+              " (not \"int\") to str")
     try:
         print("Testing operation 4...")
-        multi()
+        mult()
         print("Operation completed successfully")
     except (ValueError, ZeroDivisionError, FileNotFoundError, TypeError):
         print("Caught an error, but program continues!")
@@ -48,13 +50,11 @@ def garden_operations():
         """
         int("abc")
 
-
     def zero_error() -> None:
         """
         Tries to divide 12 by 0
         """
         12 / 0
-
 
     def file_error() -> None:
         """
@@ -62,21 +62,19 @@ def garden_operations():
         """
         open("non/existent/file", "r")
 
-
     def type_error() -> None:
         """
         Tries to add a string and an int together
         """
         "num" + 2
 
-
-    def multi() -> None:
+    def mult() -> None:
         """
         This is a valid function, joining to strings together
         But is used to show how you can except multiple errors
         """
         "num" + "abc"
-    return value_error, zero_error, file_error, type_error, multi
+    return value_error, zero_error, file_error, type_error, mult
 
 
 if __name__ == "__main__":
