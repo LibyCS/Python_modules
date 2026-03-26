@@ -3,9 +3,8 @@ class PlantError(Exception):
     PlantError is a custom error class, which inherits from
     Exception
     """
-    default_message = "Unknown PlantError"
-    def __init__(self, message: str) -> None:
-        super().__init__(message or self.default_message)
+    def __init__(self, message: str = "Unknown PlantError") -> None:
+        super().__init__(message)
 
 
 def water_plant(plant_name: str) -> None:
@@ -13,12 +12,10 @@ def water_plant(plant_name: str) -> None:
     Checks that plant_name is capitalised if it isnt it will raise a
     PlantError
     """
-    try:
-        if plant_name != str.capitalize(plant_name):
-            raise TypeError
-        print(f"Watering {plant_name}: [OK]")
-    except TypeError:
-        raise PlantError(f"Caught PlantError: Invalid plant name to water: '{plant_name}'")
+    if not plant_name or plant_name != str.capitalize(plant_name):
+        raise PlantError("Caught PlantError: Invalid plant name"
+                         f" to water: '{plant_name}'")
+    print(f"Watering {plant_name}: [OK]")
 
 
 def test_watering_system() -> None:
@@ -34,14 +31,16 @@ def test_watering_system() -> None:
     try:
         for plant_list in both_plants:
             print("Opening watering system")
-            for plant in plant_list:
-                water_plant(plant)
-            print("Closing watering system")
+            try:
+                for plant in plant_list:
+                    water_plant(plant)
+            except PlantError as message:
+                print(message)
+                print(".. ending tests and returning to main")
+                return
+            finally:
+                print("Closing watering system")
             print("\nTesting invalid plants...")
-    except PlantError as message:
-        print(message)
-        print(".. ending tests and returning to main")
-        print("Closing watering system")
     finally:
         print("\nCleanup always happens, even with errors!")
 
