@@ -10,7 +10,7 @@ def gen_event() -> typing.Generator[tuple[str, str], None, None]:
     """
     players = ["bob", "alice", "dylan", "charlie"]
     actions = ["run", "eat", "sleep", "grab", "move",
-               "climb", "swiim", "release", "use"]
+               "climb", "swim", "release", "use"]
     while True:
         name = random.choice(players)
         action = random.choice(actions)
