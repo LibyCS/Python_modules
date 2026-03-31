@@ -62,10 +62,10 @@ def init_dict(diction) -> dict[str, dict[str, int]]:
     most = None
     least = None
     for item in diction:
-        if most == None or diction[item] > most:
+        if most is None or diction[item] > most:
             stats["most"] = {item: diction[item]}
             most = diction[item]
-        if least == None or diction[item] < least:
+        if least is None or diction[item] < least:
             stats["least"] = {item: diction[item]}
             least = diction[item]
     return stats
