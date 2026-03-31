@@ -59,13 +59,13 @@ def init_dict(diction) -> dict[str, dict[str, int]]:
     nested dictionaries as it values
     """
     stats: dict[str, dict[str, int]] = {}
-    most: int = 0
-    least: int = 0
+    most = None
+    least = None
     for item in diction:
-        if diction[item] > most or most == 0:
+        if most == None or diction[item] > most:
             stats["most"] = {item: diction[item]}
             most = diction[item]
-        if diction[item] < least or least == 0:
+        if least == None or diction[item] < least:
             stats["least"] = {item: diction[item]}
             least = diction[item]
     return stats
@@ -85,12 +85,14 @@ def system() -> None:
         percentage = (inventory[item] / sum(inventory.values())) * 100
         print(f"Item {item} represents {percentage:.1f}%")
     stats = init_dict(inventory)
-    for item in stats["most"]:
-        print(f"Item most abundant: {item} "
-              f"with quantity {inventory.get(item)}")
-    for item in stats["least"]:
-        print(f"Item least abundant: {item} "
-              f"with quantity {inventory.get(item)}")
+    if "most" in stats:
+        for item in stats["most"]:
+            print(f"Item most abundant: {item} "
+                  f"with quantity {inventory.get(item)}")
+    if "least" in stats:
+        for item in stats["least"]:
+            print(f"Item least abundant: {item} "
+                  f"with quantity {inventory.get(item)}")
     inventory.update({"magic_item": 1})
     print(f"Updated inventory: {inventory}")
 
