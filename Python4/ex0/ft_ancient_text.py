@@ -4,8 +4,7 @@ import typing
 
 def read_file(f: typing.IO[str]) -> None:
     """
-    Reads the file given, prints the content and
-    then closes the file
+    Reads the file given, prints the content
     """
     print("---\n")
     print(f.read())
