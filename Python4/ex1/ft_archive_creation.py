@@ -12,6 +12,7 @@ def write_file(content: str) -> None:
     if not fname:
         print("Not saving data.")
         return
+    print(f"Saving data to \'{fname}\'")
     try:
         f = open(fname, "w+")
         f.write(content)
@@ -20,7 +21,6 @@ def write_file(content: str) -> None:
               f" [Errno 13] Permission denied: \'{fname}\'")
         print("Data not saved")
         return
-    print(f"Saving data to \'{fname}\'")
     print(f"Data saved in file \'{fname}\'.")
     f = open(fname, "w+")
     f.write(content)
