@@ -45,7 +45,7 @@ def open_file() -> None:
     Checks that the argument given is valid
     """
     argv = sys.argv
-    print("=== Cyber Archives Recovery ===")
+    print("=== Cyber Archives Recovery & Preservation ===")
     try:
         if len(argv) == 1:
             raise FileNotFoundError("Usage: ft_ancient_text.py <file>")
