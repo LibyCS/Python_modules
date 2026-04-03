@@ -45,7 +45,8 @@ def data_stream() -> None:
     for i in range(0, 10):
         events.append(next(gen_event()))
     print(f"Built list of 10 events: {events}")
-    for event in consume_event(events):
+    consume = consume_event(events)
+    for event in consume:
         print(f"Got event from list: {event}")
         print(f"Remains in list: {events}")
 
