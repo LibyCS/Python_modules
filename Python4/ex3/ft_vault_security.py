@@ -1,5 +1,11 @@
 def secure_archive(fname: str, perms: str = 'r', content: str = ""
                    ) -> tuple[bool, str]:
+    """
+    Takes in file name, perms as r or w, default is r
+    the content of the new file and returns a tuple
+    on weather it was successful and the contents
+    of the file
+    """
     try:
         if perms != 'r' and perms != 'w':
             raise ValueError
