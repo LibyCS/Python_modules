@@ -24,6 +24,8 @@ def write_file(content: str) -> None:
               file=sys.stderr)
         print("Data not saved", file=sys.stdout)
         return
+    finally:
+        f.close()
     print(f"Data saved in file \'{fname}\'.", file=sys.stdout)
 
 
