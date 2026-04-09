@@ -8,15 +8,32 @@ class DataProcessor(ABC):
     for the classes that inherits this
     """
     def __init__(self) -> None:
+        """
+        data_pro is the strings that have been processed
+        counter is the index of the string, needs to be
+        tracked when outputing it in the tuple
+        """
         self.data_pro: list[str] = []
         self.counter: int = 0
 
     @abstractmethod
     def validate(self, data: Any) -> bool:
+        """
+        Determines weather the type of data is
+        correct for the processor to take in
+        Empty for now must be overwritten in
+        the child processor
+        """
         pass
 
     @abstractmethod
     def ingest(self, data: Any) -> None:
+        """
+        Takes in the data raises an error
+        if the data type is not valid
+        depending on the processor
+        stores the data in a class variable list
+        """
         if self.validate(data) is False:
             raise TypeError
 
@@ -34,6 +51,10 @@ class NumericProcessor(DataProcessor):
     Takes in ints floats or a list of both and outputs
     """
     def validate(self, data: Any) -> bool:
+        """
+        Determines weather the type of data is
+        correct for the processor to take in
+        """
         if not isinstance(data, list):
             data = [data]
         for i in data:
@@ -42,10 +63,18 @@ class NumericProcessor(DataProcessor):
         return True
 
     def ingest(self, data: (int | float | list[int | float])) -> None:
+        """
+        Takes in the data raises an error
+        if the data type is not valid
+        depending on the processor
+        stores the data in a class variable list
+        """
         super().ingest(data)
-        if isinstance(data, (int, float)):
-            data = [data]
-        self.data_pro = list(map(str, data))
+        if isinstance(data, list):
+            for i in data:
+                self.data_pro.append(str(i))
+        else:
+            self.data_pro.append(str(data))
 
 
 class TextProcessor(DataProcessor):
@@ -54,6 +83,10 @@ class TextProcessor(DataProcessor):
     or a list of strings and outputs
     """
     def validate(self, data: Any) -> bool:
+        """
+        Determines weather the type of data is
+        correct for the processor to take in
+        """
         if isinstance(data, str):
             return True
         elif isinstance(data, list):
@@ -61,6 +94,12 @@ class TextProcessor(DataProcessor):
         return False
 
     def ingest(self, data: (str | list[str])) -> None:
+        """
+        Takes in the data raises an error
+        if the data type is not valid
+        depending on the processor
+        stores the data in a class variable list
+        """
         super().ingest(data)
         if isinstance(data, str):
             data = [data]
@@ -73,6 +112,10 @@ class LogProcessor(DataProcessor):
     of strings and outputs
     """
     def validate(self, data: Any) -> bool:
+        """
+        Determines weather the type of data is
+        correct for the processor to take in
+        """
         if isinstance(data, dict):
             data = [data]
         for data_dict in data:
@@ -84,6 +127,12 @@ class LogProcessor(DataProcessor):
         return True
 
     def ingest(self, data: (dict[str, str] | list[dict[str, str]])) -> None:
+        """
+        Takes in the data raises an error
+        if the data type is not valid
+        depending on the processor
+        stores the data in a class variable list
+        """
         super().ingest(data)
         if isinstance(data, dict):
             data = [data]
