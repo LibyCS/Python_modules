@@ -101,9 +101,11 @@ class TextProcessor(DataProcessor):
         stores the data in a class variable list
         """
         super().ingest(data)
-        if isinstance(data, str):
-            data = [data]
-        self.data_pro = data
+        if isinstance(data, list):
+            for text in data:
+                self.data_pro.append(text)
+        else:
+            self.data_pro.append(data)
 
 
 class LogProcessor(DataProcessor):
