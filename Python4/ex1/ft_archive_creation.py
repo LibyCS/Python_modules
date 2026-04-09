@@ -21,10 +21,9 @@ def write_file(content: str) -> None:
               f" [Errno 13] Permission denied: \'{fname}\'")
         print("Data not saved")
         return
+    finally:
+        f.close()
     print(f"Data saved in file \'{fname}\'.")
-    f = open(fname, "w+")
-    f.write(content)
-    f.close()
 
 
 def read_file(f: typing.IO[str]) -> str:
