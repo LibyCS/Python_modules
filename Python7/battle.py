@@ -2,6 +2,11 @@ from ex0 import CreatureFactory, FlameFactory, AquaFactory
 
 
 def factory(fac: CreatureFactory) -> None:
+    """
+    Checks if the factory functions are valid
+    then uses the factory function to show off
+    base and evolved creatures
+    """
     if not fac.create_base() or not fac.create_evolved():
         print("Error: Factory does not have the valid functions needed")
         return
@@ -12,6 +17,10 @@ def factory(fac: CreatureFactory) -> None:
 
 
 def battle(fac1: CreatureFactory, fac2: CreatureFactory) -> None:
+    """
+    Takes in 2 factories checks if they have a valid base
+    and prints out a fight between the 2 base creatures
+    """
     if not fac1.create_base() or not fac2.create_base():
         print("Error: Factory does not have the valid functions needed")
         return
