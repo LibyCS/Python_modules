@@ -1,3 +1,6 @@
-from .factory import HealingCreatureFactory  # noqa:F401
-from .factory import TransformCreatureFactory  # noqa:F401
-from .capability import HealingCapability, TransformCapability  # noqa:F401
+from .factory import HealingCreatureFactory
+from .factory import TransformCreatureFactory
+from .capability import HealingCapability, TransformCapability
+
+__all__ = ["HealingCreatureFactory", "TransformCreatureFactory",
+           "HealingCapability", "TransformCapability"]
