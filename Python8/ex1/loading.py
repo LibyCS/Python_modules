@@ -53,7 +53,7 @@ if __name__ == "__main__":
         print("poetry install")
         print("poetry run python loading.py")
         sys.exit()
-    import pandas as pd
-    import numpy as np
-    import matplotlib.pyplot as plt
+    import pandas as pd  # type: ignore
+    import numpy as np  # type: ignore
+    import matplotlib.pyplot as plt  # type: ignore
     analysis()
