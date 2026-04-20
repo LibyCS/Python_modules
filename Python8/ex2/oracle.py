@@ -25,14 +25,14 @@ def read_env() -> bool:
                 valid = False
             else:
                 print("Connected to local instance")
-        elif key == "api_key":
+        elif key == "api_key" and data["matrix_mode"] == "development":
             print("API Access: ", end="")
             if not value:
                 print("Unable to authenticate")
                 valid = False
             else:
                 print("Authenticated")
-        elif key == "log_level":
+        elif key == "log_level" and data["matrix_mode"] == "development":
             print("Log level: ", end="")
             if not value:
                 print("None")
@@ -62,7 +62,7 @@ if __name__ == "__main__":
               " command:")
         print("cp .env.example .env")
         sys.exit()
-    load_dotenv()
+    load_dotenv(override=True)
     print("\nORACLE STATUS: Reading the Matrix...\n")
     state = read_env()
     print("\nEnvironment security check:")
