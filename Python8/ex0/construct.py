@@ -8,6 +8,10 @@ def python_info(state: bool) -> None:
     print("Virtual Environment: ", end="")
     if state is False:
         print("None detected")
+        print("Global package installation paths: ", end="")
+        for path in site.getsitepackages():
+            if "dist-packages" in path and sys.prefix in path:
+                print(path)
     else:
         print(os.path.basename(sys.prefix))
         print(f"Environment Path: {sys.prefix}")
@@ -31,7 +35,7 @@ if __name__ == "__main__":
         print("\nSUCCESS: You're in an isolated environment!"
               "\nSafe to install packages without affecting"
               "\nthe global system.")
-        print("\nPackage installation path:")
+        print("\nVirtual package installation paths:")
         for path in site.getsitepackages():
-            if "site-packages" in path and sys.prefix in path:
+            if "packages" in path and sys.prefix in path:
                 print(path)
