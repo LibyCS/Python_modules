@@ -4,6 +4,10 @@ import site
 
 
 def python_info(state: bool) -> None:
+    """
+    Shows python info regardless if we are in a
+    virtual environment or not
+    """
     print(f"\nCurrent Python: {sys.executable}")
     print("Virtual Environment: ", end="")
     if state is False:

@@ -3,6 +3,11 @@ import sys
 
 
 def read_env() -> bool:
+    """
+    Fetchs the environment keys and values and
+    validates and prints them if acceptable
+    if not a reasonable message is returned
+    """
     valid = True
     data = {"matrix_mode": os.getenv("MATRIX_MODE"),
             "db_url": os.getenv("DATABASE_URL"),

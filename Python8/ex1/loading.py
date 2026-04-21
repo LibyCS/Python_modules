@@ -4,6 +4,11 @@ import importlib.metadata as md
 
 
 def comparison() -> bool:
+    """
+    Finds if the module is in sys.paths and can
+    be located, returns the version of the module
+    by using the metadata associated.
+    """
     failed: bool = False
     if util.find_spec("pandas"):
         print(f"[OK] pandas ({md.version("pandas")}) "
@@ -27,6 +32,11 @@ def comparison() -> bool:
 
 
 def analysis() -> None:
+    """
+    Some "analusis" on some random data
+    then plots a graph useing matplot lib
+    and saves it as a png
+    """
     print("\nAnalysing Matrix data...")
     data = np.random.randint(100, size=(1000, 2))
     data = data + 10
