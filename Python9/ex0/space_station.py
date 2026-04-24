@@ -58,7 +58,8 @@ def main() -> None:
                                 name="International Space Station",
                                 crew_size=6, power_level=85.5,
                                 oxygen_level=92.3,
-                                last_maintenance=datetime.today())
+                                last_maintenance=datetime.today(),
+                                notes="NASA owned")
     format(spacestation)
     print("\n========================================")
     print("Expected validation error:")
