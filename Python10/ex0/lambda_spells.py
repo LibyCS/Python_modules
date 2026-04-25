@@ -1,20 +1,35 @@
 def artifact_sorter(artifacts: list[dict]) -> list[dict]:
+    """
+    Using sorted lambda makes it so that key is power
+    returns reverse sorted artifacts
+    """
     sorted_list = sorted(artifacts, key=lambda artifact: artifact["power"],
                          reverse=True)
     return sorted_list
 
 
 def power_filter(mages: list[dict], min_power: int) -> list[dict]:
+    """
+    Using filter lambda goes through mage checking the powers are
+    greater than min_power as the key for filter
+    """
     filtered_list = filter(lambda mage: mage["power"] >= min_power, mages)
     return list(filtered_list)
 
 
 def spell_transformer(spells: list[str]) -> list[str]:
+    """
+    Adds '*' before and after the spell name
+    """
     transformed = map(lambda spell: "*" + spell + "*", spells)
     return list(transformed)
 
 
 def mage_stats(mages: list[dict]) -> dict:
+    """
+    Using lambda goes through each mage and finds the highest,
+    lowest and average power
+    """
     mage_stat = {}
     mage_stat["max_power"] = max(map(lambda mage: mage["power"], mages))
     mage_stat["min_power"] = min(map(lambda mage: mage["power"], mages))
