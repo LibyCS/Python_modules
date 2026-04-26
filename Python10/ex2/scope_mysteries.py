@@ -1,7 +1,7 @@
-from typing import Callable, Any
+from typing import Callable
 
 
-def mage_counter() -> Callable[[], int]:
+def mage_counter() -> Callable:
     """
     Returns a function that counts how many times it gets called
     """
@@ -18,7 +18,7 @@ def mage_counter() -> Callable[[], int]:
     return counter
 
 
-def spell_accumulator(initial_power: int) -> Callable[[int], int]:
+def spell_accumulator(initial_power: int) -> Callable:
     """
     Returns a function that accumulates power over time
     """
@@ -35,7 +35,7 @@ def spell_accumulator(initial_power: int) -> Callable[[int], int]:
     return total_power
 
 
-def enchantment_factory(enchantment_type: str) -> Callable[[str], str]:
+def enchantment_factory(enchantment_type: str) -> Callable:
     """
     creates enchantment functions where the the retuurned
     function applies specified enchantment
@@ -51,7 +51,7 @@ def enchantment_factory(enchantment_type: str) -> Callable[[str], str]:
     return enchanted
 
 
-def memory_vault() -> dict[str, Callable[..., Any]]:
+def memory_vault() -> dict[str, Callable]:
     """
     returns a dictionary function of store and recall
     """
