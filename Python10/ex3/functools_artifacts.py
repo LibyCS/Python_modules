@@ -56,22 +56,38 @@ def memoized_fibonacci(n: int) -> int:
 
 
 def spell_dispatcher() -> Callable[[Any], str]:
+    """
+    returns the function dispatch which depending on the tpye
+    of the argument will be sent to a corrosponding function
+    created
+    """
     @functools.singledispatch
     def dispatcher(spell_type: Any) -> str:
+        """
+        returns unknwon if it doesnt have the correct type
+        """
         return "Unknown spell type"
 
     @dispatcher.register
     def _(dmg: int) -> str:
+        """
+        for int data
+        """
         return f"Damage spell: {dmg} damage"
 
     @dispatcher.register
     def _(enchant: str) -> str:
+        """
+        for str data
+        """
         return f"Enchantment: {enchant}"
 
     @dispatcher.register
     def _(multi: list) -> str:
+        """
+        for list data
+        """
         return f"Multi-cast: {len(multi)} spells"
-
     return dispatcher
 
 
