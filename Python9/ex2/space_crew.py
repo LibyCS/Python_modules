@@ -84,14 +84,29 @@ def main() -> None:
                            rank=Rank.CAPTAIN, age=43,
                            specialisation="Mission Command",
                            years_experience=19, is_active=True)
+    except ValidationError as error:
+        print("Crew member could not be parsed")
+        for message in error.errors():
+            print(message["msg"])
+    try:
         crew2 = CrewMember(member_id="CM002", name="James Hernandez",
                            rank=Rank.LIEUTENANT, age=43,
                            specialisation="pilot",
                            years_experience=30, is_active=True)
+    except ValidationError as error:
+        print("Crew member could not be parsed")
+        for message in error.errors():
+            print(message["msg"])
+    try:
         crew3 = CrewMember(member_id="CM003", name="Anna Jones",
                            rank=Rank.CADET, age=35,
                            specialisation="communications",
                            years_experience=15, is_active=True)
+    except ValidationError as error:
+        print("Crew member could not be parsed")
+        for message in error.errors():
+            print(message["msg"])
+    try:
         crew4 = CrewMember(member_id="CM004", name="David Smith",
                            rank=Rank.OFFICER, age=27,
                            specialisation="communications",
